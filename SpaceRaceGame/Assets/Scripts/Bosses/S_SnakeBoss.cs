@@ -21,17 +21,19 @@ public class S_SnakeBoss : MonoBehaviour {
 
         SnakeManagerRef = GameObject.Find("SnakeManager");
 
-        for(int i = 0; i > gameObject.transform.childCount; i++)
+        for(int i = 0; i < gameObject.transform.childCount; i++)
         {
             if (gameObject.transform.GetChild(i).name == "FirePoint")
             {
                 FirePoint = gameObject.transform.GetChild(i);
-            }            
+            }
+            Debug.Log("Child: " + i);       
         }
         
         currentTime = Time.time;
         lastShootTime = Time.time;
 
+        Debug.Log(gameObject.transform.childCount);
     }
 	
 	// Update is called once per frame
@@ -57,18 +59,9 @@ public class S_SnakeBoss : MonoBehaviour {
 
     void Shoot()
     {
-
-        // Set firepoint position as a vector
-        Vector3 firePointPosition = new Vector3(this.transform.position.x + 0.25f, this.transform.position.y, 0);
-
-        if (ShootLeft)
-        {
-            firePointPosition = new Vector3(this.transform.position.x - 0.25f, this.transform.position.y, 0);
-        }
-
         // Create projectile
-        GameObject Bullet = Instantiate(Projectile, firePointPosition, this.transform.rotation);
-        GameObject Bullet2 = Instantiate(Projectile, firePointPosition, this.transform.rotation);
+        GameObject Bullet = Instantiate(Projectile, FirePoint.transform.position, this.transform.rotation);
+        GameObject Bullet2 = Instantiate(Projectile, FirePoint.transform.position, this.transform.rotation);
         
         // Make bullets go diagonally 90 degrees apart
         Bullet.GetComponent<S_Bullet>().ChangeBulletDirection(new Vector3(1f, 0.5f, 0f));

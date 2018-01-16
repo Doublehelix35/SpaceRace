@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 60000013144802576}
   - component: {fileID: 114000013284423156}
   - component: {fileID: 114000011999208734}
-  - component: {fileID: 114443452714284494}
+  - component: {fileID: 114536526751988692}
   m_Layer: 9
   m_Name: Space_Octopus
   m_TagString: Player
@@ -153,7 +153,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010639309124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.002, y: -0.582, z: 0}
+  m_LocalPosition: {x: 0.048, y: -1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000014267228766}
@@ -669,7 +669,7 @@ MonoBehaviour:
   IsInShop: 0
   GunParticle01: {fileID: 198028209870446576}
   GunParticle02: {fileID: 198881523673627210}
---- !u!114 &114443452714284494
+--- !u!114 &114536526751988692
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

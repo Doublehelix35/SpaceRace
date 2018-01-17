@@ -7,7 +7,22 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-    guid: 00000000000000000000000000000000
+    guid: 7da962b3a258f06448ae7db3a2043655
   - enabled: 1
     path: Assets/Scenes/Levels.unity
-    guid: 00000000000000000000000000000000
+    guid: 1cd1c8fdeac05b9479f9b4c2149bd7b5
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: e941538ae6aca1e42ab4997dc19c11ca
+  - enabled: 1
+    path: Assets/Scenes/BossMeteor.unity
+    guid: 2173c83af00e25c45a4d56918d238833
+  - enabled: 1
+    path: Assets/Scenes/BossSnake.unity
+    guid: a5fae270e97c42a4ebb569c29a7283b0
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: f0b78b737ce930d4288f19a207cb5195
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 4b990ce807d4611409af54622d53f631

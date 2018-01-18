@@ -11,7 +11,6 @@ public class S_SnakeBoss : MonoBehaviour {
 
     public GameObject Projectile;
     float ShootWaitTime = 1f;
-    float currentTime = 0f;
     float lastShootTime = 0f;
 
     bool ShootLeft = false;
@@ -30,7 +29,7 @@ public class S_SnakeBoss : MonoBehaviour {
             Debug.Log("Child: " + i);       
         }
         
-        currentTime = Time.time;
+
         lastShootTime = Time.time;
 
         Debug.Log(gameObject.transform.childCount);
@@ -38,12 +37,10 @@ public class S_SnakeBoss : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        // Update current time
-        currentTime = Time.time;
+        
 
         // If its been longer than wait time then call shoot function
-        if ((currentTime - lastShootTime) >= ShootWaitTime)
+        if ((Time.time - lastShootTime) >= ShootWaitTime)
         {
             Shoot();
         }
@@ -59,10 +56,11 @@ public class S_SnakeBoss : MonoBehaviour {
 
     void Shoot()
     {
+
         // Create projectile
-        GameObject Bullet = Instantiate(Projectile, FirePoint.transform.position, this.transform.rotation);
-        GameObject Bullet2 = Instantiate(Projectile, FirePoint.transform.position, this.transform.rotation);
-        
+        GameObject Bullet = Instantiate(Projectile, FirePoint.transform.position, transform.rotation);
+        GameObject Bullet2 = Instantiate(Projectile, FirePoint.transform.position, transform.rotation);
+
         // Make bullets go diagonally 90 degrees apart
         Bullet.GetComponent<S_Bullet>().ChangeBulletDirection(new Vector3(1f, 0.5f, 0f));
         Bullet2.GetComponent<S_Bullet>().ChangeBulletDirection(new Vector3(1f, -0.5f, 0f));

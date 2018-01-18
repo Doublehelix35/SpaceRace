@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class S_SnakeManager : MonoBehaviour {
 
@@ -168,7 +169,7 @@ public class S_SnakeManager : MonoBehaviour {
 
         if(SnakeHealth <= 0)
         {
-            // Win
+            SceneManager.LoadScene("Win");
         }
     }
 }

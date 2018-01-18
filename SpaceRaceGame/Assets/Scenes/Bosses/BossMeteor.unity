@@ -1016,8 +1016,8 @@ GameObject:
   - component: {fileID: 676680133}
   - component: {fileID: 676680132}
   - component: {fileID: 676680136}
-  - component: {fileID: 676680135}
   - component: {fileID: 676680134}
+  - component: {fileID: 676680135}
   m_Layer: 0
   m_Name: Homing_Boss
   m_TagString: Enemy
@@ -1100,18 +1100,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 676680131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63fbcab6d4b2a9843b334667b7391cb8, type: 3}
+  m_Script: {fileID: 11500000, guid: aca9811538e45404089f8f3f0d116ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Respawns: 0
-  IsExplodable: 0
   BaseHealth: 100
-  ThreatSize: 0
-  LootIncreaser: -5
-  Rock: {fileID: 1000012368928890, guid: 501a3f24f60451c4aabf5d1e11685d0c, type: 2}
-  Metal: {fileID: 1000011816996816, guid: d8b0cc127ac570f41881fd3e673a4f06, type: 2}
-  Crystal: {fileID: 1000010540408738, guid: e85364436ecb48840bd6273178022c9d, type: 2}
-  Uranium: {fileID: 1000012850137306, guid: 6258aa0250d870341bf57541c3c8de57, type: 2}
 --- !u!58 &676680136
 CircleCollider2D:
   m_ObjectHideFlags: 0

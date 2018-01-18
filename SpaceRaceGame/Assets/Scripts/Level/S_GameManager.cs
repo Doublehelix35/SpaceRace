@@ -179,7 +179,7 @@ public class S_GameManager : MonoBehaviour {
         }
         else // boss fight game overs
         {
-            SceneManager.LoadScene("LevelSelect"); // reload the current scene
+            SceneManager.LoadScene("GameOver"); // reload the current scene
         }       
     }
 

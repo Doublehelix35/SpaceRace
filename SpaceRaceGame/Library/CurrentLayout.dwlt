@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 9
+  controlID: 109
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 10
+  controlID: 45
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 11
+  controlID: 46
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -176,8 +176,8 @@ MonoBehaviour:
     y: 0
     width: 231
     height: 676
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -203,12 +203,12 @@ MonoBehaviour:
     height: 676
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
-  m_ActualView: {fileID: 12}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
   - {fileID: 12}
   - {fileID: 15}
-  m_Selected: 1
+  m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -254,8 +254,8 @@ MonoBehaviour:
     y: 0
     width: 540
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -365,9 +365,9 @@ MonoBehaviour:
     height: 655
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d88affff
-    m_LastClickedID: -29992
-    m_ExpandedIDs: ce8affff568cffffe296ffff18fcffff00000000542800009a280000
+    m_SelectedIDs: 185c0000
+    m_LastClickedID: 0
+    m_ExpandedIDs: f20bfbff8411fbff4619fbff1e20fbff1e22fbffbe29fbff1a2bfbff982cfbff002efbffdc2ffbff3631fbff0c41fbff3845fbff1a5cfbffa45dfbff1a5ffbffa463fbff6e6afbff8092fbff9af4ffff18fcffff0000000044280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -386,7 +386,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
   m_ExpandedScenes:
-  - SplashScreen
+  - BossPacMonster
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -417,14 +417,14 @@ MonoBehaviour:
     width: 1145
     height: 655
   m_SceneLighting: 1
-  lastFramingTime: 599.0251537513851
+  lastFramingTime: 1106.2578677141735
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 546.93695, y: 293.60135, z: 0}
+    m_Target: {x: -0.4968761, y: -0.25648284, z: 0}
     speed: 2
-    m_Value: {x: 546.93695, y: 293.60135, z: 0}
+    m_Value: {x: -0.4968761, y: -0.25648284, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -451,9 +451,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 711.5353
+    m_Target: 5.3578286
     speed: 2
-    m_Value: 711.5353
+    m_Value: 5.3578286
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -528,18 +528,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/Bosses
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/Bosses
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Mitchell\Documents\GitHub\SpaceRace\SpaceRaceGame
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 139}
-    m_SelectedIDs: bc270000
-    m_LastClickedID: 10172
+    m_SelectedIDs: 9c270000
+    m_LastClickedID: 10140
     m_ExpandedIDs: 0000000082260000ce260000e0260000bc27000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 00240000ea210000e6210000d821000096250000ec210000e4210000e2210000f821000086260000e8210000fe2100008a370000a62a0000e0260000a0aefdff9029fdff
+    m_ExpandedInstanceIDs: 00240000ea210000e6210000d821000096250000ec210000e4210000e2210000f8210000e8210000fe2100008a370000a62a0000e0260000a0aefdff9029fdff46580000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

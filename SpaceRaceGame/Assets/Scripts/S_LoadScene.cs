@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class S_LoadScene : MonoBehaviour {
 
     public bool NextSceneAfterDelay = false;
+    public float Delay = 3f;
     public string NextSceneName;
 
     private void Start()
@@ -30,7 +31,7 @@ public class S_LoadScene : MonoBehaviour {
 
     IEnumerator NextScene()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(Delay);
         SceneManager.LoadScene(NextSceneName);
     }
 }

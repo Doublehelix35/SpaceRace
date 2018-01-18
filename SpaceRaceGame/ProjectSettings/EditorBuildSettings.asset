@@ -6,19 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Menus/MainMenu.unity
     guid: 7da962b3a258f06448ae7db3a2043655
+  - enabled: 1
+    path: Assets/Scenes/Menus/Options.unity
+    guid: 2299b9fb820483a4abf3b1e575e891b6
   - enabled: 1
     path: Assets/Scenes/Levels.unity
     guid: 1cd1c8fdeac05b9479f9b4c2149bd7b5
   - enabled: 1
-    path: Assets/Scenes/LevelSelect.unity
+    path: Assets/Scenes/Menus/LevelSelect.unity
     guid: e941538ae6aca1e42ab4997dc19c11ca
   - enabled: 1
-    path: Assets/Scenes/BossMeteor.unity
+    path: Assets/Scenes/Bosses/BossMeteor.unity
     guid: 2173c83af00e25c45a4d56918d238833
   - enabled: 1
-    path: Assets/Scenes/BossSnake.unity
+    path: Assets/Scenes/Bosses/BossSnake.unity
     guid: a5fae270e97c42a4ebb569c29a7283b0
   - enabled: 1
     path: Assets/Scenes/GameOver.unity

@@ -799,6 +799,19 @@ Prefab:
       propertyPath: TransformToFollow
       value: 
       objectReference: {fileID: 1630406954}
+    - target: {fileID: 1007676741466552, guid: c12ba041d17f7484ea2548d838ae5374, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007676741466552, guid: c12ba041d17f7484ea2548d838ae5374, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212195177856380936, guid: c12ba041d17f7484ea2548d838ae5374,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c12ba041d17f7484ea2548d838ae5374, type: 2}
   m_IsPrefabParent: 0
@@ -924,6 +937,10 @@ Prefab:
       propertyPath: TransformToFollow
       value: 
       objectReference: {fileID: 1630406954}
+    - target: {fileID: 1878676294852324, guid: c78c18b1c448ec54b8249ffae27dbe96, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c78c18b1c448ec54b8249ffae27dbe96, type: 2}
   m_IsPrefabParent: 0
@@ -2017,6 +2034,10 @@ Prefab:
       propertyPath: TransformToFollow
       value: 
       objectReference: {fileID: 1630406954}
+    - target: {fileID: 1227531341624896, guid: 378e5c900502dbf4b8f6abc556074b26, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 378e5c900502dbf4b8f6abc556074b26, type: 2}
   m_IsPrefabParent: 0
@@ -2443,6 +2464,28 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1610526369}
+--- !u!1 &1616686200 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1007676741466552, guid: c12ba041d17f7484ea2548d838ae5374,
+    type: 2}
+  m_PrefabInternal: {fileID: 618137367}
+--- !u!114 &1616686206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1616686200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba36850f10908142bea377d60eaf748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinTimeTilDrop: 2
+  MaxTimeTilDrop: 10
+  RespawnTime: 3
+  PlayerRef: {fileID: 1748462023}
+  DropSpeed: 1
+  Health: 5
 --- !u!1 &1623453235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,6 +3058,10 @@ Prefab:
       propertyPath: TransformToFollow
       value: 
       objectReference: {fileID: 1630406954}
+    - target: {fileID: 1425633732490686, guid: 7c33335b05944fc4aa260d65d6200087, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c33335b05944fc4aa260d65d6200087, type: 2}
   m_IsPrefabParent: 0
@@ -3268,6 +3315,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1748462023 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010639309124, guid: 289c4a0059a55d748a0f4b981f7c2de5,
+    type: 2}
+  m_PrefabInternal: {fileID: 2020894728}
 --- !u!1 &1827337248
 GameObject:
   m_ObjectHideFlags: 0

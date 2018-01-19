@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 95178768270579300}
   - component: {fileID: 114107954229475362}
   - component: {fileID: 58724228806366214}
+  - component: {fileID: 114573211028252260}
   m_Layer: 0
   m_Name: Ghost_red
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007676741466552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.53691, y: 0.79757464, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,6 +89,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransformToFollow: {fileID: 0}
   DistanceToFollowAt: -0.8
+--- !u!114 &114573211028252260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1007676741466552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba36850f10908142bea377d60eaf748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinTimeTilDrop: 20
+  MaxTimeTilDrop: 30
+  RespawnTime: 8
+  PlayerRef: {fileID: 0}
+  DropSpeed: 0.5
+  Health: 8
 --- !u!212 &212195177856380936
 SpriteRenderer:
   m_ObjectHideFlags: 1

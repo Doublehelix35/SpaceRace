@@ -21,7 +21,10 @@ public class S_PhaseManager : MonoBehaviour {
             }
         }
 
-        Spawner.GetComponent<S_PhaseSpawn>().SetPhaseNum(PhaseNum);
-        Boss.GetComponent<S_ArcShooting>().UpdateShootWaitTime(PhaseNum);
+        if(Spawner != null)
+        {
+            Spawner.GetComponent<S_PhaseSpawn>().SetPhaseNum(PhaseNum);
+            Boss.GetComponent<S_ArcShooting>().UpdateShootWaitTime(PhaseNum);
+        }        
     }
 }

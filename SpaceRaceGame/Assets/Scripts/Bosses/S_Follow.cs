@@ -13,7 +13,9 @@ public class S_Follow : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        // Set position equal to transform to follow's position + set distance
         transform.position = new Vector3(TransformToFollow.position.x + DistanceToFollowAt, TransformToFollow.position.y, transform.position.z);
 	}
 }

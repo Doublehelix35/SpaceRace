@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 95784229585863442}
   - component: {fileID: 114450544380122704}
   - component: {fileID: 58761056229314254}
+  - component: {fileID: 114505415776706076}
   m_Layer: 0
   m_Name: Ghost_orange
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425633732490686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.932, y: 0.747, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,6 +89,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransformToFollow: {fileID: 0}
   DistanceToFollowAt: -2
+--- !u!114 &114505415776706076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425633732490686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba36850f10908142bea377d60eaf748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinTimeTilDrop: 20
+  MaxTimeTilDrop: 40
+  RespawnTime: 5
+  PlayerRef: {fileID: 0}
+  DropSpeed: 0.25
+  Health: 8
 --- !u!212 &212540378733957112
 SpriteRenderer:
   m_ObjectHideFlags: 1

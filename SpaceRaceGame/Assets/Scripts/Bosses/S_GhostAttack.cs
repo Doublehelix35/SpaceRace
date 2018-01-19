@@ -50,12 +50,6 @@ public class S_GhostAttack : MonoBehaviour {
 
             if (Health <= 0)
             {
-                // Hide and move
-                gameObject.GetComponent<SpriteRenderer>().enabled = false; // Hide
-                gameObject.GetComponent<S_Follow>().enabled = true; // Follow boss again
-                gameObject.GetComponent<Collider2D>().enabled = false; // Turn off collision
-                AbleToDrop = false;
-
                 StartCoroutine("GhostRespawn");
             }
         }
@@ -66,12 +60,6 @@ public class S_GhostAttack : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            // Hide and move
-            gameObject.GetComponent<SpriteRenderer>().enabled = false; // Hide
-            gameObject.GetComponent<S_Follow>().enabled = true; // Follow boss again
-            gameObject.GetComponent<Collider2D>().enabled = false; // Turn off collision
-            AbleToDrop = false;
-
             StartCoroutine("GhostRespawn");
             
         }
@@ -79,9 +67,16 @@ public class S_GhostAttack : MonoBehaviour {
 
     IEnumerator GhostRespawn()
     {
-        yield return new WaitForSeconds(RespawnTime);
+        // Set alpha to 0
+        Color TempColor = gameObject.GetComponent<SpriteRenderer>().color;
+        TempColor.a = 0f;
+        gameObject.GetComponent<SpriteRenderer>().color = TempColor;
 
-        gameObject.GetComponent<SpriteRenderer>().enabled = true; // Un-hide
+        gameObject.GetComponent<S_Follow>().enabled = true; // Follow boss again
+        gameObject.GetComponent<Collider2D>().enabled = false; // Turn off collision
+        AbleToDrop = false;
+
+        yield return new WaitForSeconds(RespawnTime);
 
         StartCoroutine("FadeIn");
 
@@ -102,10 +97,10 @@ public class S_GhostAttack : MonoBehaviour {
 
         while (FadeProgress < 1)
         {
-            TempColor.a = Mathf.Lerp(0f, 255f, FadeProgress);
+            TempColor.a = Mathf.Lerp(0f, 1f, FadeProgress);
             gameObject.GetComponent<SpriteRenderer>().color = TempColor;
-
-            FadeProgress += Time.deltaTime;
+       
+            FadeProgress += Time.deltaTime * 0.8f;
             yield return null;
         }
     }

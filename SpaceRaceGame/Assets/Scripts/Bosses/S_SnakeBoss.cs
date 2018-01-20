@@ -7,19 +7,20 @@ public class S_SnakeBoss : MonoBehaviour {
     GameObject SnakeManagerRef;
     Transform FirePoint;
 
-    public bool SurvivedOnce = false;
+    public bool SurvivedOnce = false; // Survives kill box once
 
-    public GameObject Projectile;
+    public GameObject Projectile; // Projectile prefab
     float ShootWaitTime = 1f;
     float lastShootTime = 0f;
 
-    bool ShootLeft = false;
+    bool ShootLeft = false; // Direction to shoot
 
-    // Use this for initialization
-    void Start () {
-
+    void Start ()
+    {
+        // Initialize values
         SnakeManagerRef = GameObject.Find("SnakeManager");
 
+        // Find fire point amongst child objects
         for(int i = 0; i < gameObject.transform.childCount; i++)
         {
             if (gameObject.transform.GetChild(i).name == "FirePoint")
@@ -28,18 +29,13 @@ public class S_SnakeBoss : MonoBehaviour {
             }
             Debug.Log("Child: " + i);       
         }
-        
 
         lastShootTime = Time.time;
-
-        Debug.Log(gameObject.transform.childCount);
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
 
-        // If its been longer than wait time then call shoot function
+	void Update ()
+    {
+        // Check if can shoot
         if ((Time.time - lastShootTime) >= ShootWaitTime)
         {
             Shoot();

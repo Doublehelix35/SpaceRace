@@ -4,29 +4,28 @@ using System.Collections;
 public class S_Resource : MonoBehaviour {
 
     public int ResourceType = 4; // 0 = rock, 1 = metal, 2 = Crystal, 3 = Uranium, 4 = Coin
-    public float speed = 0.5f;
+    public float speed = 0.5f; // Speed of resource
 
-    float randomX = 0f;
-    float randomY = 0f;
+    float randDirX = 0f; // Direction to head on x axis
+    float randDirY = 0f; // Direction to head on y axis
 
-    //private int DirectionToHead = 0;  // 1 up, 2 up & right, 3 right, 4 down & right, 5 down, 6 down & left, 7 left, 8 up & left
+    // int DirectionToHead = 0;  // 1 up, 2 up & right, 3 right, 4 down & right, 5 down, 6 down & left, 7 left, 8 up & left
 
-    private void Start()
+    void Start()
     {
         //DirectionToHead = Random.Range(1, 8);
 
-        randomX = Random.Range(-1, 2);
-        randomY = Random.Range(-1, 2);
-        if(randomX == 0f && randomY == 0f)
+        randDirX = Random.Range(-1, 2);
+        randDirY = Random.Range(-1, 2);
+        if(randDirX == 0f && randDirY == 0f) // Always have a direction to head
         {
-            randomX = 1f;
+            randDirX = 1f;
         }
     }
 
     void Update()
     {
-
-        transform.Translate(new Vector3(randomX, randomY, 0f) * Time.deltaTime * speed, this.gameObject.transform);
+        transform.Translate(new Vector3(randDirX, randDirY, 0f) * Time.deltaTime * speed, gameObject.transform);
 
         /*
         switch (DirectionToHead)

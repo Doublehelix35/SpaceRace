@@ -5,6 +5,7 @@ public class S_Planet : MonoBehaviour {
 
     private bool ShopOpened = false;
 
+    // Resource prices
     private float RockValue = 1;
     private float MetalValue = 5;
     private float CrystalValue = 10;
@@ -16,9 +17,8 @@ public class S_Planet : MonoBehaviour {
     private GameObject PlanetButtons;
     private GameObject PlayerRef;
 
-    // Use this for initialization
-    void Start () {
-
+    void Start ()
+    {
         // Find shop tab
         ShopTab = GameObject.Find("ShopTab");
         if (ShopTab == null)
@@ -33,13 +33,8 @@ public class S_Planet : MonoBehaviour {
 
         PlanetLevelCalcs();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Planet Triggered!");
 
@@ -58,7 +53,7 @@ public class S_Planet : MonoBehaviour {
         
     }
 
-    private void OnTriggerExit2D(Collider2D col)
+    void OnTriggerExit2D(Collider2D col)
     {
         if(col.gameObject.tag == "Player" && ShopOpened)
         {
@@ -92,7 +87,7 @@ public class S_Planet : MonoBehaviour {
         return UraniumValue;
     }
 
-    private void PlanetLevelCalcs()
+    void PlanetLevelCalcs()
     {
         // Size
         if (PlanetLevel <= 0) // Dont go below or equal to 0 scale

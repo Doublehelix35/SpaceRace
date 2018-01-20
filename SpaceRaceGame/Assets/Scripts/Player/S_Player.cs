@@ -3,7 +3,7 @@ using System.Collections;
 
 public class S_Player : MonoBehaviour {
 
-    public float SpeedFactor = 3.0f;
+    public float SpeedFactor = 3.0f; // Speed modifier
     float Speed = 80f;
     float RotationSpeed = -1.5f;
     bool PauseMovement = false; // To stop movement
@@ -19,27 +19,18 @@ public class S_Player : MonoBehaviour {
     private bool UpdatingUI = false;
     public bool IsInShop = false;
 
+    // Particles
     public ParticleSystem GunParticle01;
     public ParticleSystem GunParticle02;
     
-    // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         // Update spawn point
         S_GameManager.gameManager.RespawnRefresh(this.gameObject.transform);
     }
 
-    void Awake()
+    void Update ()
     {
-        rb = GetComponent<Rigidbody2D>();
-        GetComponent<Rigidbody2D>().angularDrag = 1;
-        GetComponent<Rigidbody2D>().drag = 1;
-        GetComponent<Rigidbody2D>().mass = 1;
-        GetComponent<Rigidbody2D>().gravityScale = 0;
-    }
-
-    // Update is called once per frame
-    void Update () {
-
         if (PauseMovement) // if player is paused dont check for movement or shooting
         {
             return;
@@ -85,30 +76,23 @@ public class S_Player : MonoBehaviour {
 
     void Shoot()
     {
-       Instantiate(Bullet, FirePoint01.transform.position, FirePoint01.transform.rotation); // bullet 01
-       Instantiate(Bullet, FirePoint02.transform.position, FirePoint02.transform.rotation); // bullet 02
+        Instantiate(Bullet, FirePoint01.transform.position, FirePoint01.transform.rotation); // bullet 01
+        Instantiate(Bullet, FirePoint02.transform.position, FirePoint02.transform.rotation); // bullet 02
 
         GunParticle01.Play();
         GunParticle02.Play();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        
-        // Collisiony stuff
-        
-    }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Resource")
         {
-
             Debug.Log("Resource triggered!");
-            // add resource
+            // Add resource
             int resourceTypeRef = col.gameObject.GetComponent<S_Resource>().ResourceType;
 
-            // update ui
+            // Update ui
             UpdatingUI = true;
             S_GameManager.gameManager.UpdateResourceAdd(resourceTypeRef);
             UpdatingUI = false;
@@ -127,7 +111,7 @@ public class S_Player : MonoBehaviour {
         }
     }
 
-    private void OnTriggerExit2D(Collider2D col)
+    void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.tag == "Planet")
         {

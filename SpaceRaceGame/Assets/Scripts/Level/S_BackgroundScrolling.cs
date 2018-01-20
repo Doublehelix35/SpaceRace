@@ -3,19 +3,21 @@ using System.Collections;
 
 public class S_BackgroundScrolling : MonoBehaviour {
 
-    [Range(0,1)] public float XSpeed = 1;
-    [Range(0,1)] public float YSpeed = 1;
+    [Range(0,1)] public float XSpeed = 1; // Speed to move on the x axis
+    [Range(0,1)] public float YSpeed = 1; // Speed to move on the y axis
 
     Vector2 offset = Vector2.zero;
-    Material mat;
+    Material mat; // Material to move
 
     private void Awake()
     {
+        // Get material on gameobject
         mat = GetComponent<MeshRenderer>().material;
     }
 
     public void MoveTexture(Vector2 pos)
     {
+        // Calculate offset
         offset.x += pos.x * XSpeed;
         offset.y += pos.y * YSpeed;
 
@@ -36,8 +38,11 @@ public class S_BackgroundScrolling : MonoBehaviour {
             offset.y += 1f;
         }
 
+        // Set mat offset to new offset
         mat.mainTextureOffset = offset;
     }
+
+    // Failed attempt...
 
     /*public float TileSize = 5.12f;
 

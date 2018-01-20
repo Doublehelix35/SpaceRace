@@ -9,9 +9,10 @@ using UnityEngine.SceneManagement;
 [DisallowMultipleComponent]
 public class S_GameManager : MonoBehaviour {
      
-    // Saving
+    
     public static S_GameManager gameManager;
 
+    // Saving values
     public float PlayerPositionX; // Stores player X axis position
     public float PlayerPositionY; // Stores player Y axis position
     public float PlayerPositionZ; // Stores player Z axis position
@@ -26,7 +27,7 @@ public class S_GameManager : MonoBehaviour {
     // Text
     public Text PlayerHealthText;
     public int PlayerHealthInt = 10;
-    private int PlayerHealthMax = 6;
+    int PlayerHealthMax = 6;
 
     public Text RockText;
     public Text MetalText;
@@ -35,25 +36,25 @@ public class S_GameManager : MonoBehaviour {
     public Text CoinsText;
 
     // Resource nums
-    private int NumOfRock = 0;
-    private int NumOfMetal = 0;
-    private int NumOfCrystal = 0;
-    private int NumOfUranium = 0;
-    private float NumOfCoins = 50;
+    int NumOfRock = 0;
+    int NumOfMetal = 0;
+    int NumOfCrystal = 0;
+    int NumOfUranium = 0;
+    float NumOfCoins = 50;
 
     
-    private Transform PlayerRespawn;
+    Transform PlayerRespawn;
 
     // Object refs
-    private GameObject PlanetRef;
-    private GameObject PlayerRef;
-    private GameObject SettingsTab;
+    GameObject PlanetRef;
+    GameObject PlayerRef;
+    GameObject SettingsTab;
 
-    private bool GamePaused = false;
+    bool GamePaused = false;
 
     public bool IsBossFight = false;
 
-    private void Awake()
+    void Awake()
     {
         if (gameManager == null)
         {
@@ -66,9 +67,8 @@ public class S_GameManager : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
-    void Start () {
-
+    void Start ()
+    {
         // Health
         PlayerHealthMax = PlayerHealthInt;
 
@@ -108,15 +108,13 @@ public class S_GameManager : MonoBehaviour {
         HealthTextRefresh();
     }
 	
-	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
         if (Input.GetKey(KeyCode.Escape))
         {
             SettingsTab.SetActive(true);
             PauseTime();
         }
-
 	
         if (GamePaused)
         {

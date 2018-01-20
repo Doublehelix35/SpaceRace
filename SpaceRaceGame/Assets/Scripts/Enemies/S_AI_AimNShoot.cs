@@ -3,7 +3,7 @@ using System.Collections;
 
 public class S_AI_AimNShoot : MonoBehaviour {
 
-    public int rotationOffset = 0;
+    public int rotationOffset = 0; // Offset for rotation
     public float fireRate = 0;
     float timeToFire = 0;
     Transform firePoint;
@@ -14,7 +14,6 @@ public class S_AI_AimNShoot : MonoBehaviour {
 
     void Awake()
     {
-
         firePoint = transform.Find("FirePoint");
         if (firePoint == null)
         {
@@ -23,13 +22,13 @@ public class S_AI_AimNShoot : MonoBehaviour {
         PlayerRef = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float Distance = Vector3.Distance(PlayerRef.gameObject.transform.position, this.transform.position); // calculate distance
+        // Calculate distance
+        float Distance = Vector3.Distance(PlayerRef.gameObject.transform.position, transform.position); 
 
+        // Check distance
         if (Distance < ActivationDistance)
-
         {
             // Calcualate difference then rotate towards the player
             Vector3 difference = PlayerRef.transform.position - gameObject.transform.position;
@@ -50,11 +49,8 @@ public class S_AI_AimNShoot : MonoBehaviour {
 
     void Shoot()
     {
-
         Vector3 firePointPosition = new Vector3(firePoint.position.x, firePoint.position.y, 0);
 
         Instantiate(Projectile, firePointPosition, firePoint.rotation);
-
-
     }
 }

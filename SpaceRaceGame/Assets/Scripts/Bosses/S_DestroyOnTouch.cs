@@ -5,9 +5,9 @@ using UnityEngine;
 public class S_DestroyOnTouch : MonoBehaviour {
 
     GameObject SnakeManagerRef;
-    float RespawnTimer = 0.1f;
+    float RespawnTimer = 0.1f; // Time until respawn
 
-    bool CanSpawn = false;
+    bool CanSpawn = false; // Able to spawn or not
 
 
     void Start()
@@ -17,12 +17,14 @@ public class S_DestroyOnTouch : MonoBehaviour {
 
     void Update()
     {
+        // Update timer
         RespawnTimer -= Time.deltaTime;
 
+        // Check if can respawn
         if (RespawnTimer <= 0)
         {
             CanSpawn = true;
-            RespawnTimer = 0.1f;
+            RespawnTimer = 0.1f; // Reset timer
         }
     }
 
@@ -30,19 +32,20 @@ public class S_DestroyOnTouch : MonoBehaviour {
     {
         if(col.gameObject.tag == "Boss")
         {
-            //Debug.Log(col.gameObject.name);
+            // Exit function if cant spawn
             if (!CanSpawn)
             {
                 return;
             }
 
+            
             GameObject SnakeCol = col.gameObject;
 
-            if (SnakeCol.GetComponent<S_SnakeBoss>().SurvivedOnce)
+            if (SnakeCol.GetComponent<S_SnakeBoss>().SurvivedOnce) // Check if snake has survived once
             {
-                SnakeManagerRef.GetComponent<S_SnakeManager>().NextSpawn();
+                SnakeManagerRef.GetComponent<S_SnakeManager>().SpawnBoss(); // Spawn next snake
                 CanSpawn = false;
-                Destroy(col.transform.parent.gameObject, 5f);
+                Destroy(col.transform.parent.gameObject, 5f); // Destroy col's parent after delay
             }
 
             SnakeCol.GetComponent<S_SnakeBoss>().SurvivedOnce = true;
@@ -54,7 +57,7 @@ public class S_DestroyOnTouch : MonoBehaviour {
     {
         if (col.gameObject.tag == "Boss")
         {
-            //Debug.Log(col.gameObject.name);
+            // Exit function if cant spawn
             if (!CanSpawn)
             {
                 return;
@@ -62,11 +65,11 @@ public class S_DestroyOnTouch : MonoBehaviour {
 
             GameObject SnakeCol = col.gameObject;
 
-            if (SnakeCol.GetComponent<S_SnakeBoss>().SurvivedOnce)
+            if (SnakeCol.GetComponent<S_SnakeBoss>().SurvivedOnce) // Check if snake has survived once
             {
-                SnakeManagerRef.GetComponent<S_SnakeManager>().NextSpawn();
+                SnakeManagerRef.GetComponent<S_SnakeManager>().SpawnBoss(); // Spawn next snake
                 CanSpawn = false;
-                Destroy(col.transform.parent.gameObject, 5f);
+                Destroy(col.transform.parent.gameObject, 5f); // Destroy col's parent after delay
             }
 
             SnakeCol.GetComponent<S_SnakeBoss>().SurvivedOnce = true;

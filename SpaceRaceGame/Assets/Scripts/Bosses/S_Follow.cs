@@ -7,12 +7,6 @@ public class S_Follow : MonoBehaviour {
     public Transform TransformToFollow;
     public float DistanceToFollowAt;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
 	void Update ()
     {
         // Set position equal to transform to follow's position + set distance

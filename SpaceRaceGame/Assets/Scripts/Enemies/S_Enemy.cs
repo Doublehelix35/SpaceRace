@@ -6,42 +6,42 @@ public class S_Enemy : MonoBehaviour {
     public bool Respawns = false;
     public bool IsExplodable = false;
 
-    public int BaseHealth = 10;
-    private int Health = 10;
+    public int BaseHealth = 10; // Max health
+    int Health = 10; // Current health
 
-    private float BaseRespawnTime = 15f;
-    private float RespawnTime = 15f;
+    float BaseRespawnTime = 15f; // Max respawn time
+    float RespawnTime = 15f; // Current respawn time
 
     //Threat size affects physical size, health, loot min and max and respawn times
     public int ThreatSize = 1; // bigger the threat the bigger the rewards
 
-    private int NumOfLoot = 1;
-    private int NumOfLootMin = 1;
-    private int NumOfLootMax = 2;
+    int NumOfLootMin = 1;
+    int NumOfLootMax = 2;
     public int LootIncreaser = 0;
-    private int LootType = 0; // 0 = rock, 1 = metal, 2 = Crystal, 3 = Uranium
+    int LootType = 0; // 0 = rock, 1 = metal, 2 = Crystal, 3 = Uranium
 
+    // Resource prefabs
     public GameObject Rock;
     public GameObject Metal;
     public GameObject Crystal;
     public GameObject Uranium;
 
-    private GameObject GameManagerRef;
+    GameObject GameManagerRef;
 
-    private void Start()
+    void Start()
     {
+        // Initialize values
         Health = BaseHealth;
-
         ThreatCalcs(Respawns);
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Bullet")
         {
-            //Lose health
+            // Lose health
             Health--;
-            if (Health <= 0)
+            if (Health <= 0) // Check health
             {
                 DestroyAndSpawn(0);
             }
@@ -54,17 +54,12 @@ public class S_Enemy : MonoBehaviour {
                 DestroyAndSpawn(0.1f);
             }
         }
-        
     }
     
-
     void DestroyAndSpawn(float TimeToWait)
     {
         // Spawn loot
         SpawnLoot();
-
-        // Boss
-        //if()
         
         // Then destroy self
         Destroy(gameObject, TimeToWait);
@@ -72,29 +67,33 @@ public class S_Enemy : MonoBehaviour {
 
     void SpawnLoot()
     {
-        NumOfLoot = Random.Range(NumOfLootMin, NumOfLootMax + 1);
+        // Calculate num of loot
+        int NumOfLoot = Random.Range(NumOfLootMin, NumOfLootMax + 1);
         NumOfLoot = NumOfLoot + LootIncreaser;
+
+        // Spawn loot
         for (int i = 0; i < NumOfLoot; i++)
         {
+            // Determine loot type
             LootType = Random.Range(0, 4);
 
             switch (LootType)
             {
                 case 0:
                     // Spawn rock
-                    Instantiate(Rock, this.transform.position, Quaternion.identity);
+                    Instantiate(Rock, transform.position, Quaternion.identity);
                     break;
                 case 1:
                     // Spawn Metal
-                    Instantiate(Metal, this.transform.position, Quaternion.identity);
+                    Instantiate(Metal, transform.position, Quaternion.identity);
                     break;
                 case 2:
                     // Spawn Crystal
-                    Instantiate(Crystal, this.transform.position, Quaternion.identity);
+                    Instantiate(Crystal, transform.position, Quaternion.identity);
                     break;
                 case 3:
                     // Spawn Uranium
-                    Instantiate(Uranium, this.transform.position, Quaternion.identity);
+                    Instantiate(Uranium, transform.position, Quaternion.identity);
                     break;
                 default:
                     // ERROR!!!

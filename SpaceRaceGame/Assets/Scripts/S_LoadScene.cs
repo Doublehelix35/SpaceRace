@@ -5,19 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class S_LoadScene : MonoBehaviour {
 
-    public bool NextSceneAfterDelay = false;
+    public bool NextSceneAfterDelay = false; // Automatically go to next scene
     public float Delay = 3f;
     public string NextSceneName;
 
-    private void Start()
+    void Start()
     {
         if (NextSceneAfterDelay)
         {
             StartCoroutine("NextScene");
         }        
-
     }
-
 
     public void LoadSceneByName(string SceneName)
     {

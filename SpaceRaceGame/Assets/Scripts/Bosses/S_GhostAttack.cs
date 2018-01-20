@@ -6,20 +6,19 @@ public class S_GhostAttack : MonoBehaviour {
 
     int phase = 1;
 
-    public float MinTimeTilDrop = 2f;
-    public float MaxTimeTilDrop = 10f;
-    float RandTimeTilDrop;
-    float LastDropTime;
-    public float RespawnTime = 3f;
+    public float MinTimeTilDrop = 2f; // Min time until ghost attacks player
+    public float MaxTimeTilDrop = 10f; // Max time until ghost attacks player
+    float RandTimeTilDrop; // Time til ghost attacks player
+    float LastDropTime; // Time.time of last attack
+    public float RespawnTime = 3f; // Time until respawn
     bool AbleToDrop = true;
 
     public GameObject PlayerRef;
 
-    public float DropSpeed = 1f;
-    public float Health = 5f;
-    float HealthMax;
+    public float DropSpeed = 1f; // Speed of ghost
+    public float Health = 5f; // Current health
+    float HealthMax; // Max health
 
-	// Use this for initialization
 	void Start ()
     {
         // Initialize values
@@ -27,10 +26,10 @@ public class S_GhostAttack : MonoBehaviour {
         RandTimeTilDrop = Random.Range(MinTimeTilDrop, MaxTimeTilDrop);
         HealthMax = Health;
 	}
-	
-	// Update is called once per frame
+
 	void Update ()
     {
+        // Check if ghost can drop
         if(LastDropTime + RandTimeTilDrop < Time.time && AbleToDrop)
         {
             // Stop following boss
@@ -48,7 +47,7 @@ public class S_GhostAttack : MonoBehaviour {
             //Lose health
             Health--;
 
-            if (Health <= 0)
+            if (Health <= 0) // Check health
             {
                 StartCoroutine("GhostRespawn");
             }
@@ -93,14 +92,15 @@ public class S_GhostAttack : MonoBehaviour {
         // Create temp color for fade in
         Color TempColor = gameObject.GetComponent<SpriteRenderer>().color;
 
-        float FadeProgress = 0.0f;
+        float FadeProgress = 0.0f; // Percentage of progress
 
         while (FadeProgress < 1)
         {
+            // Smoothly go from 0 to 100% alpha
             TempColor.a = Mathf.Lerp(0f, 1f, FadeProgress);
             gameObject.GetComponent<SpriteRenderer>().color = TempColor;
        
-            FadeProgress += Time.deltaTime * 0.8f;
+            FadeProgress += Time.deltaTime * 0.8f; // Update fade progress
             yield return null;
         }
     }

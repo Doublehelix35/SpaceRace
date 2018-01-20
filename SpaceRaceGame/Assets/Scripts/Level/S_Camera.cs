@@ -3,21 +3,16 @@ using System.Collections;
 
 public class S_Camera : MonoBehaviour {
 
-    private GameObject PlayerRef;
-   
-    // Use this for initialization
+    GameObject PlayerRef;
+
     void Start ()
     {
-
         PlayerRef = GameObject.FindGameObjectWithTag("Player");
-
-        gameObject.transform.position = new Vector3(PlayerRef.transform.position.x, PlayerRef.transform.position.y, -100);
-
 	}
-	
-	// Update is called once per frame
+
 	void Update ()
     {
+        // Set gameobject pos equal to player's pos
         gameObject.transform.position = new Vector3(PlayerRef.transform.position.x, PlayerRef.transform.position.y, -100);
     }
 }

@@ -7,30 +7,27 @@ using UnityEngine.SceneManagement;
 public class S_SnakeManager : MonoBehaviour {
 
     public GameObject[] BossBars; // boss bar ui images
-    //public GameObject Boss; // boss game object
     public Sprite[] BossBarsSprites; // make sure they are same number as boss bars & put them in back to front
 
-    public GameObject[] Spawners;
-    public GameObject[] Snakes;
+    public GameObject[] Spawners; // Array of spawners
+    public GameObject[] Snakes; // Array of snake sizes
 
-    int SnakeSize = 1;
+    int SnakeSize = 1; // Current snake size
     int CurrentSpawner = 0;
-    float MoveSpeed = 1.5f;
-    //bool BossCanSpawn = true;
-    //float RespawnTimer = 0.1f;
+    float MoveSpeed = 1.5f; // Snake speed
 
-    int SnakeHealth = 100;
-    int SnakeHealthBase = 100;
-
-    
+    int SnakeHealth = 100; // Current health
+    public int SnakeHealthBase = 100; // Max health
 
     void Start()
     {
-        SpawnBoss();        
+        SnakeHealth = SnakeHealthBase;
+        SpawnBoss();     
     }
 
     void Update()
     {
+        // Set phase based on health
         int phase = 8;
         if (SnakeHealth <= ((SnakeHealthBase / 8) * 7)) // 7/8
         {
@@ -79,12 +76,12 @@ public class S_SnakeManager : MonoBehaviour {
             phase = 0;
         }
 
-        PhaseUpdater(phase); // count down from 7 (There are 8 phases from 7 to 0)
+        PhaseUpdater(phase);
     }
 
     public void PhaseUpdater(int PhaseNum)
     {
-
+        // Update boss bars based on phase
         for (int i = 0; i < BossBars.Length; i++)
         {
             if (i == PhaseNum)
@@ -94,80 +91,78 @@ public class S_SnakeManager : MonoBehaviour {
         }
     }
 
-    void SpawnBoss()
+    public void SpawnBoss()
     {
-        //if (!BossCanSpawn)
-        //{
-           // return;
-        //}
-
         Debug.Log("Current spawner: " + CurrentSpawner + " Spawner length: " + Spawners.Length);
-        //Debug.Log("BOSS SPAWNED");
+
+        // Spawn boss at current spawner
         if (CurrentSpawner == 0)
         {
+            // Set spawn position based on current spawner
             Vector3 spawnPosition = new Vector3(Spawners[CurrentSpawner].transform.position.x, Spawners[CurrentSpawner].transform.position.y, 0);
+            // Spawn boss
             GameObject Snake = Instantiate(Snakes[SnakeSize - 1], spawnPosition, Quaternion.identity);
 
+            // Set velocity
             Snake.GetComponent<Rigidbody2D>().velocity = Vector2.right * MoveSpeed * Time.deltaTime * 20f;
-            CurrentSpawner++;
 
-            //BossCanSpawn = false;
+            // Update current spawner
+            CurrentSpawner++;
         }
         else if (CurrentSpawner % 2 == 0) // even numbers
         {
+            // Set spawn position based on current spawner
             Vector3 spawnPosition = new Vector3(Spawners[CurrentSpawner].transform.position.x, Spawners[CurrentSpawner].transform.position.y, 0);
+            // Spawn boss
             GameObject Snake = Instantiate(Snakes[SnakeSize - 1], spawnPosition, Quaternion.identity);
 
+            // Set velocity
             Snake.GetComponent<Rigidbody2D>().velocity = Vector2.right * MoveSpeed * Time.deltaTime * 20f;
 
+            // Update current spawner
             CurrentSpawner++;
             if(CurrentSpawner >= Spawners.Length)
             {
                 CurrentSpawner = 0;
-                
             }
-            //BossCanSpawn = false;
         }
         else // odd numbers
         {
+            // Set spawn position based on current spawner
             Vector3 spawnPosition = new Vector3(Spawners[CurrentSpawner].transform.position.x, Spawners[CurrentSpawner].transform.position.y, 0);
             GameObject Snake = Instantiate(Snakes[SnakeSize - 1], spawnPosition, Quaternion.identity);
 
+            // Set velocity
             Snake.GetComponent<Rigidbody2D>().velocity = Vector2.left * MoveSpeed * Time.deltaTime * 20f;
+
+            // Rotate snake
             Snake.transform.rotation = Quaternion.Euler(0, 180, 0);
-                        
+
+            // Update current spawner   
             CurrentSpawner++;
             if (CurrentSpawner >= Spawners.Length)
             {
                 CurrentSpawner = 0;
                 
             }
-            //BossCanSpawn = false;
-        }
-        
-        
+        }        
     }
 
     public void IncreaseSnakeSize()
     {
         SnakeSize++;
 
-        if(SnakeSize > Snakes.Length)
+        if(SnakeSize > Snakes.Length) // Check snake size doesnt get bigger than is possible
         {
             SnakeSize = Snakes.Length;
         }
-    }
-
-    public void NextSpawn()
-    {
-        SpawnBoss();
     }
 
     public void LoseHealth()
     {
         SnakeHealth--;
 
-        if(SnakeHealth <= 0)
+        if(SnakeHealth <= 0) // Check health
         {
             SceneManager.LoadScene("Win");
         }

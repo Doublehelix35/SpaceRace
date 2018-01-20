@@ -3,22 +3,23 @@ using System.Collections;
 
 public class S_Bullet : MonoBehaviour {
 
-    public float moveSpeed = 1f;
-    public float duration = 2f;
+    public float moveSpeed = 1f; // Bullet speed
+    public float duration = 2f; // Time until its destroyed
     public bool IsPlayerBullet = true;
     Vector3 BulletDir = Vector3.right;
 
     private void Start()
     {
-        Destroy(this.gameObject, duration);
+        Destroy(gameObject, duration);
     }
-    // Update is called once per frame
+
     void Update()
     {
+        // Move bullet
         transform.Translate(BulletDir * Time.deltaTime * moveSpeed * 0.5f);
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (IsPlayerBullet)
         {
@@ -35,10 +36,9 @@ public class S_Bullet : MonoBehaviour {
                 Destroy(gameObject, 0);
             }
         }
-        
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (IsPlayerBullet)
         {
@@ -59,6 +59,7 @@ public class S_Bullet : MonoBehaviour {
 
     public void ChangeBulletDirection(Vector3 dir)
     {
+        // Set direction
         BulletDir = dir;
     }
 }

@@ -6,59 +6,56 @@ public class S_Food : MonoBehaviour {
 
     GameObject FoodManagerRef;
     GameObject SnakeManagerRef;
-    public int Health = 1;
-    int idNum = 10000;
+    int idNum = 10000; // Error has occured if id is still equal to this
 
-    private void Start()
+    void Start()
     {
+        // Initialize values
         FoodManagerRef = GameObject.Find("FoodSpawner");
         SnakeManagerRef = GameObject.Find("SnakeManager");
     }
 
     public void SetIdNum(int num)
     {
+        // Set id of food
         idNum = num;
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "Bullet")
         {
-
-            Health--;
-
-            if (Health <= 0)
-            {
-                FoodManagerRef.GetComponent<S_FoodSpawner>().SetFoodToNull(idNum);
-                Destroy(gameObject, 0f);
-            }
+            // Tell food manager this id is empty and then destroy gameobject
+            FoodManagerRef.GetComponent<S_FoodSpawner>().SetFoodToNull(idNum);
+            Destroy(gameObject, 0f);
         }
 
         if (col.gameObject.tag == "Boss")
         {
+            // Increase snake size
             SnakeManagerRef.GetComponent<S_SnakeManager>().IncreaseSnakeSize();
+
+            // Tell food manager this id is empty and then destroy gameobject
             FoodManagerRef.GetComponent<S_FoodSpawner>().SetFoodToNull(idNum);
             Destroy(gameObject, 0f);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "Bullet")
         {
-            
-            Health--;
-
-            if (Health <= 0)
-            {
-                FoodManagerRef.GetComponent<S_FoodSpawner>().SetFoodToNull(idNum);
-                Destroy(gameObject, 0f);
-            }
+            // Tell food manager this id is empty and then destroy gameobject
+            FoodManagerRef.GetComponent<S_FoodSpawner>().SetFoodToNull(idNum);
+            Destroy(gameObject, 0f);
         }
 
         if (col.gameObject.tag == "Boss")
         {
+            // Increase snake size
             SnakeManagerRef.GetComponent<S_SnakeManager>().IncreaseSnakeSize();
+
+            // Tell food manager this id is empty and then destroy gameobject
             FoodManagerRef.GetComponent<S_FoodSpawner>().SetFoodToNull(idNum);
             Destroy(gameObject, 0f);
         }

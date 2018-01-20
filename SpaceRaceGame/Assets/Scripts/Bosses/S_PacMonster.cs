@@ -5,26 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class S_PacMonster : MonoBehaviour {
 
+    // Pathfinding waypoints
     public Transform Waypoint01;
     public Transform Waypoint02;
-    public GameObject Projectile;
-    public Transform FirePoint;
+
+    public GameObject Projectile; // Projectile prefab
+    public Transform FirePoint; 
     public Transform FirePoint02;
     private GameObject GameManagerRef;
 
-    public Vector3 Scale = new Vector3(2f,2f,2f);
-    public float Speed = 1f;
-    float PauseSpeed = 1f;
+    public float Speed = 1f; // Speed of boss
+    float PauseSpeed = 1f; // Used to pause movement
     bool FaceRight = true;
 
-    Vector2 dir = Vector2.right;
+    Vector2 dir = Vector2.right; // Direction of movement
 
-    public float ShootInterval = 3f;
-    float TimeAtLastShoot;
-    bool ShootOnce = false;
+    public float ShootInterval = 3f; // Time between shots
+    float TimeAtLastShoot; // Time.time at last shot
+    bool ShootOnce = false; 
 
-    public int BaseHealth = 10;
-    int Health = 10;
+    public int BaseHealth = 10; // Max health
+    int Health = 10; // Current health
 
 
     void Start ()
@@ -36,8 +37,8 @@ public class S_PacMonster : MonoBehaviour {
     }
 	
 
-	void Update () {
-
+	void Update ()
+    {
         // Check position agaisnt waypoints and adjust direction
 		if(transform.position.x < Waypoint01.position.x)
         {
@@ -78,25 +79,25 @@ public class S_PacMonster : MonoBehaviour {
 
     void Shoot()
     {
-        if (FaceRight)
+        if (FaceRight) // Facing right
         {
             // Create projectile
             GameObject Bullet = Instantiate(Projectile, FirePoint.transform.position, transform.rotation); // Left
             GameObject Bullet2 = Instantiate(Projectile, FirePoint.transform.position, transform.rotation); // Middle
             GameObject Bullet3 = Instantiate(Projectile, FirePoint.transform.position, transform.rotation); // Right
 
-            // Make bullets go 45 degrees apart
+            // Spawn bullets 45 degrees apart
             Bullet.GetComponent<S_Bullet>().ChangeBulletDirection(new Vector3(1f, 0.5f, 0f));
             Bullet3.GetComponent<S_Bullet>().ChangeBulletDirection(new Vector3(1f, -0.5f, 0f));
         }
-        else
+        else // Facing left
         {
             // Create projectile
             GameObject Bullet = Instantiate(Projectile, FirePoint02.transform.position, transform.rotation); // Left
             GameObject Bullet2 = Instantiate(Projectile, FirePoint02.transform.position, transform.rotation); // Middle
             GameObject Bullet3 = Instantiate(Projectile, FirePoint02.transform.position, transform.rotation); // Right
 
-            // Make bullets go 45 degrees apart
+            // Spawn bullets 45 degrees apart
             Bullet.GetComponent<S_Bullet>().ChangeBulletDirection(new Vector3(-1f, 0.5f, 0f));
             Bullet2.GetComponent<S_Bullet>().ChangeBulletDirection(new Vector3(-1f, 0f, 0f));
             Bullet3.GetComponent<S_Bullet>().ChangeBulletDirection(new Vector3(-1f, -0.5f, 0f));
@@ -120,21 +121,20 @@ public class S_PacMonster : MonoBehaviour {
             rotationToShoot = Quaternion.Euler(new Vector3(0, 0, 90));
         }
         
+        // Rotate to face down
         transform.rotation = Quaternion.Lerp(transform.rotation, rotationToShoot, Time.time * 2f);
 
         yield return new WaitForSeconds(0.5f);
 
-        
-        if (!ShootOnce)
+        if (!ShootOnce) // Check if already shot
         {
             Shoot();
             ShootOnce = true;
         }
         
-
         yield return new WaitForSeconds(0.5f);
 
-        // Rotate to back
+        // Rotate back
         Quaternion rotationBack = Quaternion.Euler(new Vector3(0, 0, 0));
         transform.rotation = Quaternion.Lerp(transform.rotation, rotationBack, Time.time * 2f);
 
@@ -202,7 +202,7 @@ public class S_PacMonster : MonoBehaviour {
         {
             //Lose health
             Health--;
-            if (Health <= 0)
+            if (Health <= 0) // Check health
             {
                 SceneManager.LoadScene("Win");
             }

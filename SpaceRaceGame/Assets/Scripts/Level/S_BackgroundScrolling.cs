@@ -9,7 +9,7 @@ public class S_BackgroundScrolling : MonoBehaviour {
     Vector2 offset = Vector2.zero;
     Material mat; // Material to move
 
-    private void Awake()
+    void Awake()
     {
         // Get material on gameobject
         mat = GetComponent<MeshRenderer>().material;

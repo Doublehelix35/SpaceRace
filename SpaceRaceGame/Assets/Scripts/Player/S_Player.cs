@@ -10,7 +10,6 @@ public class S_Player : MonoBehaviour {
 
     public float fireRate = 1;
     float timeToFire = 0;
-    Rigidbody2D rb;
     public GameObject FirePoint01;
     public GameObject FirePoint02;
     public GameObject Bullet;
@@ -55,12 +54,12 @@ public class S_Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             // Move forward
-            rb.AddForce(transform.up * Speed * SpeedFactor * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * Speed * SpeedFactor * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             // Move backwards
-            rb.AddForce(transform.up * -Speed * 0.5f * SpeedFactor * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -Speed * 0.5f * SpeedFactor * Time.deltaTime);
         }
 
 

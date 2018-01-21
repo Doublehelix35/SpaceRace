@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114000014088635184}
   - component: {fileID: 58000012574067204}
   - component: {fileID: 50000010033676822}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Projectile_boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  duration: 2
+  bulletDuration: 3
   IsPlayerBullet: 0
 --- !u!212 &212000011487142770
 SpriteRenderer:

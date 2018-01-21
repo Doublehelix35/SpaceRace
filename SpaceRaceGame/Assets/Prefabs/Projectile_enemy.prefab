@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114000010180087014}
   - component: {fileID: 58000010368473684}
   - component: {fileID: 50000013216187580}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Projectile_enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  duration: 2
+  bulletDuration: 3
   IsPlayerBullet: 0
 --- !u!212 &212000013897077146
 SpriteRenderer:

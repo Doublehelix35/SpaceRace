@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  duration: 2
+  bulletDuration: 3
   IsPlayerBullet: 1
 --- !u!212 &212000010930598536
 SpriteRenderer:

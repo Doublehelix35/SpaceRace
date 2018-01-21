@@ -4,13 +4,13 @@ using System.Collections;
 public class S_Bullet : MonoBehaviour {
 
     public float moveSpeed = 1f; // Bullet speed
-    public float duration = 2f; // Time until its destroyed
+    public float bulletDuration = 3f; // Time until its destroyed
     public bool IsPlayerBullet = true;
     Vector3 BulletDir = Vector3.right;
 
     private void Start()
     {
-        Destroy(gameObject, duration);
+        Destroy(gameObject, bulletDuration);
     }
 
     void Update()
@@ -61,5 +61,11 @@ public class S_Bullet : MonoBehaviour {
     {
         // Set direction
         BulletDir = dir;
+    }
+
+    public void SetBulletSpeed(float speed, float duration)
+    {
+        moveSpeed = speed;
+        bulletDuration = duration;
     }
 }

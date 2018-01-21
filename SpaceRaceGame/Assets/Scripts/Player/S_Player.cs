@@ -4,9 +4,11 @@ using System.Collections;
 public class S_Player : MonoBehaviour {
 
     public float SpeedFactor = 3.0f; // Speed modifier
-    float Speed = 80f;
+    float Speed = 65f;
     float RotationSpeed = -1.5f;
     bool PauseMovement = false; // To stop movement
+    public float IgnoreDamageTime = 0.1f; // Dont take damage for set time
+    float LastDamageTime; // Time.time of last damage
 
     public float fireRate = 1;
     float timeToFire = 0;
@@ -25,7 +27,9 @@ public class S_Player : MonoBehaviour {
     void Start ()
     {
         // Update spawn point
-        S_GameManager.gameManager.RespawnRefresh(this.gameObject.transform);
+        S_GameManager.gameManager.RespawnRefresh(gameObject.transform);
+
+        LastDamageTime = Time.time;
     }
 
     void Update ()
@@ -59,7 +63,7 @@ public class S_Player : MonoBehaviour {
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             // Move backwards
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -Speed * 0.5f * SpeedFactor * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -Speed * 0.8f * SpeedFactor * Time.deltaTime);
         }
 
 
@@ -106,7 +110,12 @@ public class S_Player : MonoBehaviour {
 
         if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Boss")
         {
-            S_GameManager.gameManager.HealthMinus();
+            if(LastDamageTime + IgnoreDamageTime < Time.time)
+            {
+                S_GameManager.gameManager.HealthMinus();
+                LastDamageTime = Time.time;
+            }
+            
         }
     }
 

@@ -12,7 +12,7 @@ public class S_PacMonster : MonoBehaviour {
     public GameObject Projectile; // Projectile prefab
     public Transform FirePoint; 
     public Transform FirePoint02;
-    private GameObject GameManagerRef;
+    GameObject GameManagerRef;
 
     public float Speed = 1f; // Speed of boss
     float PauseSpeed = 1f; // Used to pause movement
@@ -196,7 +196,7 @@ public class S_PacMonster : MonoBehaviour {
         GameManagerRef.GetComponent<S_PhaseManager>().PhaseUpdater(phase); // count down from 7 (There are 8 phases from 7 to 0)
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Bullet")
         {

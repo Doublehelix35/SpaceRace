@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class S_GhostAttack : MonoBehaviour {
+public class S_GhostNightmare : MonoBehaviour {
 
     public float MinTimeTilDrop = 2f; // Min time until ghost attacks player
     public float MaxTimeTilDrop = 10f; // Max time until ghost attacks player
@@ -12,31 +12,70 @@ public class S_GhostAttack : MonoBehaviour {
     bool AbleToDrop = true;
 
     public GameObject PlayerRef;
+    Vector3 StartPos;
+    Vector2 Target;
 
     public float DropSpeed = 1f; // Speed of ghost
+    public float WaveAmplitude = 0f; // How far left and right the ghost will go on its journey down
     public float Health = 5f; // Current health
     float HealthMax; // Max health
 
-	void Start ()
+    float SquareWaveTimer;
+
+    public enum AttackPatterns
+    {
+        SineWave,
+        SquareWave,
+        TriangleWave,
+        Pursuit
+    }
+    public AttackPatterns Pattern; // Decides how the ghost will behave
+
+    void Start()
     {
         // Initialize values
         LastDropTime = Time.time;
         RandTimeTilDrop = Random.Range(MinTimeTilDrop, MaxTimeTilDrop);
         HealthMax = Health;
-	}
+        SquareWaveTimer = WaveAmplitude;
+        // Store start position
+        StartPos = transform.position;
 
-	void Update ()
+        // Find target destination
+        Target = transform.position;
+        Target.y -= 10f;
+    }
+
+    void Update()
     {
         // Check if ghost can drop
-        if(LastDropTime + RandTimeTilDrop < Time.time && AbleToDrop)
+        if (LastDropTime + RandTimeTilDrop < Time.time && AbleToDrop)
         {
-            // Stop following boss
-            gameObject.GetComponent<S_Follow>().enabled = false;
+            switch (Pattern)
+            {
+                case AttackPatterns.SineWave:
+                    Vector2 SineWave = new Vector2(Mathf.Sin(Time.time) * WaveAmplitude, 0);
+                    transform.position = Vector2.MoveTowards(transform.position, Target + SineWave, DropSpeed * Time.deltaTime);
+                    break;
+                case AttackPatterns.SquareWave:
+                    SquareWaveTimer -= Time.deltaTime;
+                    
+                    // Square Wave code here
 
-            // Move to player position
-            transform.position = Vector2.MoveTowards(transform.position, PlayerRef.transform.position, DropSpeed * Time.deltaTime);
+                    Vector2 SquareWave = new Vector2(WaveAmplitude, 0);
+                    transform.position = Vector2.MoveTowards(transform.position, Target + SquareWave, DropSpeed * Time.deltaTime);
+                    break;
+                case AttackPatterns.TriangleWave:
+                    break;
+                case AttackPatterns.Pursuit:
+                    // Move to player position
+                    transform.position = Vector2.MoveTowards(transform.position, PlayerRef.transform.position, DropSpeed * Time.deltaTime);
+                    break;
+                default:
+                    break;
+            }
         }
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -51,6 +90,10 @@ public class S_GhostAttack : MonoBehaviour {
             }
         }
 
+        if (col.gameObject.tag == "KillZone")
+        {
+            StartCoroutine("GhostRespawn");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -58,7 +101,7 @@ public class S_GhostAttack : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             StartCoroutine("GhostRespawn");
-            
+
         }
     }
 
@@ -69,12 +112,13 @@ public class S_GhostAttack : MonoBehaviour {
         TempColor.a = 0f;
         gameObject.GetComponent<SpriteRenderer>().color = TempColor;
 
-        gameObject.GetComponent<S_Follow>().enabled = true; // Follow boss again
         gameObject.GetComponent<Collider2D>().enabled = false; // Turn off collision
         AbleToDrop = false;
+        
 
         yield return new WaitForSeconds(RespawnTime);
 
+        transform.position = StartPos; // Move back to the top
         StartCoroutine("FadeIn");
 
         yield return new WaitForSeconds(0.3f);
@@ -97,9 +141,10 @@ public class S_GhostAttack : MonoBehaviour {
             // Smoothly go from 0 to 100% alpha
             TempColor.a = Mathf.Lerp(0f, 1f, FadeProgress);
             gameObject.GetComponent<SpriteRenderer>().color = TempColor;
-       
+
             FadeProgress += Time.deltaTime * 0.8f; // Update fade progress
             yield return null;
         }
     }
+
 }

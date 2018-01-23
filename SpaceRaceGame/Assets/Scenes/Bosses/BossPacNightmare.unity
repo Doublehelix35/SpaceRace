@@ -906,6 +906,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1007676741466552, guid: c12ba041d17f7484ea2548d838ae5374, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114573211028252260, guid: c12ba041d17f7484ea2548d838ae5374, type: 2}
     - {fileID: 114107954229475362, guid: c12ba041d17f7484ea2548d838ae5374, type: 2}
@@ -931,10 +935,10 @@ MonoBehaviour:
   MaxTimeTilDrop: 10
   RespawnTime: 3
   PlayerRef: {fileID: 1748462023}
-  DropSpeed: 0.4
+  DropSpeed: 0.3
   WaveAmplitude: 10
   Health: 5
-  Pattern: 2
+  Pattern: 0
 --- !u!50 &618137370
 Rigidbody2D:
   serializedVersion: 4
@@ -1278,8 +1282,8 @@ MonoBehaviour:
   MaxTimeTilDrop: 10
   RespawnTime: 3
   PlayerRef: {fileID: 1748462023}
-  DropSpeed: 0.4
-  WaveAmplitude: 0
+  DropSpeed: 0.2
+  WaveAmplitude: 1
   Health: 5
   Pattern: 1
 --- !u!50 &780331525
@@ -1977,6 +1981,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1227531341624896, guid: 378e5c900502dbf4b8f6abc556074b26, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114757655940056084, guid: 378e5c900502dbf4b8f6abc556074b26, type: 2}
     - {fileID: 114615341838461098, guid: 378e5c900502dbf4b8f6abc556074b26, type: 2}
@@ -2005,7 +2013,7 @@ MonoBehaviour:
   DropSpeed: 1
   WaveAmplitude: 0
   Health: 5
-  Pattern: 2
+  Pattern: 3
 --- !u!50 &1439952073
 Rigidbody2D:
   serializedVersion: 4
@@ -2661,6 +2669,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1425633732490686, guid: 7c33335b05944fc4aa260d65d6200087, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114505415776706076, guid: 7c33335b05944fc4aa260d65d6200087, type: 2}
     - {fileID: 114450544380122704, guid: 7c33335b05944fc4aa260d65d6200087, type: 2}
@@ -2686,8 +2698,8 @@ MonoBehaviour:
   MaxTimeTilDrop: 10
   RespawnTime: 3
   PlayerRef: {fileID: 1748462023}
-  DropSpeed: 1
-  WaveAmplitude: 0
+  DropSpeed: 0.5
+  WaveAmplitude: 1
   Health: 5
   Pattern: 2
 --- !u!50 &1717830121

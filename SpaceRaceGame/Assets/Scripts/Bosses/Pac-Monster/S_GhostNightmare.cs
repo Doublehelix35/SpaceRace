@@ -13,7 +13,9 @@ public class S_GhostNightmare : MonoBehaviour {
 
     public GameObject PlayerRef;
     Vector3 StartPos;
-    Vector2 Target;
+    Vector2 Target; // Target to head for
+    bool HeadRight = true; // Tell Object to head right or left when pathfinding
+    bool HeadDown = false; // Tell Object to move down or not
 
     public float DropSpeed = 1f; // Speed of ghost
     public float WaveAmplitude = 0f; // How far left and right the ghost will go on its journey down
@@ -21,6 +23,7 @@ public class S_GhostNightmare : MonoBehaviour {
     float HealthMax; // Max health
 
     float SquareWaveTimer;
+    float TriangleWaveTimer;
 
     public enum AttackPatterns
     {
@@ -37,13 +40,12 @@ public class S_GhostNightmare : MonoBehaviour {
         LastDropTime = Time.time;
         RandTimeTilDrop = Random.Range(MinTimeTilDrop, MaxTimeTilDrop);
         HealthMax = Health;
-        SquareWaveTimer = WaveAmplitude;
+        SquareWaveTimer = WaveAmplitude / 2; // Only move half of amplitude initially
         // Store start position
         StartPos = transform.position;
 
         // Find target destination
-        Target = transform.position;
-        Target.y -= 10f;
+        Target = new Vector2(10f, -10f);
     }
 
     void Update()
@@ -54,18 +56,72 @@ public class S_GhostNightmare : MonoBehaviour {
             switch (Pattern)
             {
                 case AttackPatterns.SineWave:
-                    Vector2 SineWave = new Vector2(Mathf.Sin(Time.time) * WaveAmplitude, 0);
-                    transform.position = Vector2.MoveTowards(transform.position, Target + SineWave, DropSpeed * Time.deltaTime);
+                    float SineWave = Mathf.Sin(Time.time) * WaveAmplitude;
+                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + SineWave, transform.position.y + Target.y), DropSpeed * Time.deltaTime);
                     break;
                 case AttackPatterns.SquareWave:
-                    SquareWaveTimer -= Time.deltaTime;
-                    
-                    // Square Wave code here
+                    SquareWaveTimer -= Time.deltaTime; // Count down timer
 
-                    Vector2 SquareWave = new Vector2(WaveAmplitude, 0);
-                    transform.position = Vector2.MoveTowards(transform.position, Target + SquareWave, DropSpeed * Time.deltaTime);
+                    if (HeadDown) // Down
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, transform.position.y + Target.y), DropSpeed * Time.deltaTime);
+
+                        if (SquareWaveTimer <= 0f)
+                        {
+                            HeadDown = false;
+                            HeadRight = !HeadRight; // Toggle value
+                            SquareWaveTimer = WaveAmplitude;
+                            Debug.Log(HeadRight);
+                        }
+                    }
+                    else if (HeadRight) // Right
+                    {
+                        Target.x = 10f;
+                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + Target.x, transform.position.y), DropSpeed * Time.deltaTime);
+
+                        if (SquareWaveTimer <= 0f)
+                        {
+                            HeadDown = true;
+                            SquareWaveTimer = WaveAmplitude;
+                        }
+                    }
+                    else if (!HeadRight) // Left
+                    {
+                        Target.x = -10f;
+                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + Target.x, transform.position.y), DropSpeed * Time.deltaTime);
+
+                        if (SquareWaveTimer <= 0f)
+                        {
+                            HeadDown = true;
+                            SquareWaveTimer = WaveAmplitude;
+                        }
+                    }
                     break;
                 case AttackPatterns.TriangleWave:
+                    SquareWaveTimer -= Time.deltaTime; // Count down timer
+
+                    if (HeadRight)
+                    {
+                        Target.x = 10f;
+                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + Target.x, transform.position.y + Target.y), DropSpeed * Time.deltaTime);
+
+                        if (SquareWaveTimer <= 0f)
+                        {
+                            HeadRight = false;
+                            SquareWaveTimer = WaveAmplitude;
+                        }
+                    }
+                    else
+                    {
+                        Target.x = -10f;
+                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + Target.x, transform.position.y + Target.y), DropSpeed * Time.deltaTime);
+
+                        if (SquareWaveTimer <= 0f)
+                        {
+                            HeadRight = true;
+                            SquareWaveTimer = WaveAmplitude;
+                        }
+                    }
                     break;
                 case AttackPatterns.Pursuit:
                     // Move to player position

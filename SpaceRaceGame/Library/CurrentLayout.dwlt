@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 11164
+  controlID: 67
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 11165
+  controlID: 11
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 11166
+  controlID: 12
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -176,8 +176,8 @@ MonoBehaviour:
     y: 0
     width: 231
     height: 676
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -201,15 +201,15 @@ MonoBehaviour:
     y: 0
     width: 1149
     height: 676
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 14}
   - {fileID: 12}
   - {fileID: 15}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoom: 0
     m_UniformScale: 1
     m_UpDirection: 1
@@ -365,9 +365,9 @@ MonoBehaviour:
     height: 655
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 0e270000
     m_LastClickedID: 0
-    m_ExpandedIDs: 9eb5faff10b6faff28b7faff52b7faff28b8faff08b9faffbeb9faff76bafaffa2bafaffc0bafaffcebafaffdabafaff12bbfaffd8befaffb8cffaffbee2faff56f1faff9805fbffba2ffbff5834fbffd034fbffe835fbff1236fbffe836fbffc837fbff7e38fbff8a38fbffb638fbffcc38fbffda38fbff0839fbff4239fbff963afbff6044fbffca4dfbff9855fbffd061fbff3a65fbffb065fbffc466fbffea66fbffbc67fbff9868fbff4a69fbfffe69fbff066afbff206afbff2a6afbff526afbff846afbffea79fbff1cb7fbff38d0fbff0ae2fbffd4f7fbff0409fcffaa1efcff3226fcff5c2cfcff2e36fcffde3cfcff1647fcffbe4dfcffa256fcffb070fcffaa72fcffd88cfcfff88cfcff709efcff729efcffd6b0fcff1eb1fcfffcc6fcff1ac7fcffaccbfcff20ccfcff38cdfcff62cdfcff3acefcff1ccffcffd4cffcff8ed0fcff9ad0fcffb8d0fcffc6d0fcfff2d0fcff28d1fcff6cd2fcff4ee1fcff5603fdff7803fdffdc20fdffde20fdfffc3ffdff4640fdff1e46fdff3a77fdff5877fdff267bfdff987bfdffb07cfdffda7cfdffb47dfdff987efdff527ffdff0c80fdff1880fdff3680fdff4480fdff7080fdffa680fdff0082fdff3683fdffd8d2fdffbcd5fdffd0f5fdffd01afeff0c66feff8066feff9467feffba67feff9068feff7069feff266afeffdc6afeffe46afefffe6afeff086bfeff306bfeff626bfeff9046ffff604effffa08afffff291ffff5ed1ffff18fcfffff4ffffff00000000402b0000aa2d0000242e0000582e0000402f00009c2f0000a62f0000b02f0000ba2f000078490000c84c00000e4f000096520000e252000018630000d66e00004e710000b67300003c8e0000929000000a930000729500008aa80000e4aa000060ad0000ccaf0000d2bc0000eebc0000f6be000048bf0000bec00000c4c10000bac3000030c4000062d8000068f50000c2f700003efa0000aafc0000a40e0100401001005c10010064120100b61201002c14010032150100281701009e170100
+    m_ExpandedIDs: 2a04ffff3017ffff8a19ffffc420ffffce20ffff4829ffff4a29ffff9230ffffd630ffff1c3affff1e3affff4c43ffff4e43ffff1c4bffff1e4bffff424cffff1457ffff1e57ffffa487ffffae87ffff3898ffff3a98ffff0efcffff18fcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -575,10 +575,10 @@ MonoBehaviour:
   m_LastProjectPath: C:\Users\Mitchell\Documents\GitHub\SpaceRace\SpaceRaceGame
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 183}
-    m_SelectedIDs: 64270000
-    m_LastClickedID: 10084
-    m_ExpandedIDs: 0000000092260000082700002c2700004c2800006e28000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 99}
+    m_SelectedIDs: 68270000
+    m_LastClickedID: 10088
+    m_ExpandedIDs: 00000000942600000a2700002e270000502800007228000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -606,7 +606,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000092260000082700002c2700004c2800006e28000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000942600000a2700002e2700005028000072280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -41,12 +41,12 @@ public class S_MainMenu : MonoBehaviour {
         SpawnerNum++;
         BossNum++;
 
-        if (SpawnerNum > Spawners.Length) // Loop back around
+        if (SpawnerNum >= Spawners.Length) // Loop back around
         {
             SpawnerNum = 0;
         }
 
-        if (BossNum > Bosses.Length) // Loop back around
+        if (BossNum >= Bosses.Length) // Loop back around
         {
             BossNum = 0;
         }
@@ -54,14 +54,26 @@ public class S_MainMenu : MonoBehaviour {
 
     IEnumerator MoveThenKill()
     {
-        while (SpawnTime + 4f > Time.time)
+        float MovementTime = 4f;
+        if (SpawnerNum == 0)
         {
-            CurrentBoss.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+            MovementTime = 7.5f;
+        }
+        else
+        {
+            MovementTime = 4f;
+        }
+
+        while (SpawnTime + MovementTime > Time.time)
+        {
+            
+            CurrentBoss.transform.Translate(Vector2.right * Speed * Time.deltaTime);
             yield return null;
-        }        
+        }
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(0.1f);
 
-        CurrentBoss = null;
+        Destroy(CurrentBoss);
+        SpawnBoss();
     }
 }

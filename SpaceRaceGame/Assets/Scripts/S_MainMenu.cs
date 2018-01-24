@@ -57,6 +57,7 @@ public class S_MainMenu : MonoBehaviour {
         while (SpawnTime + 4f > Time.time)
         {
             CurrentBoss.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+            yield return null;
         }        
 
         yield return new WaitForSeconds(4f);

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Menus/MainMenu.unity
+- path: Assets/Scenes/Bosses/BossMeteor.unity
   isLoaded: 1
   isActive: 1

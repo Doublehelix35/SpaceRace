@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Bosses/BossSnake.unity
     guid: a5fae270e97c42a4ebb569c29a7283b0
   - enabled: 1
+    path: Assets/Scenes/Bosses/BossPacMonster.unity
+    guid: 114b94113eb8ac6419f0d7494ede61f3
+  - enabled: 1
+    path: Assets/Scenes/Bosses/BossPacNightmare.unity
+    guid: 8ef36fa4adae5614a9b781f33243427f
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: f0b78b737ce930d4288f19a207cb5195
   - enabled: 1

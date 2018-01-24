@@ -58,7 +58,7 @@ public class S_GameManager : MonoBehaviour {
     {
         if (gameManager == null)
         {
-            DontDestroyOnLoad(gameObject); // Dont destroy this
+            //DontDestroyOnLoad(gameObject); // Dont destroy this
             gameManager = this;
         }
         else if(gameManager!= this)
@@ -107,8 +107,8 @@ public class S_GameManager : MonoBehaviour {
         CoinsTextRefresh();
         HealthTextRefresh();
     }
-	
-	void Update ()
+
+    void Update ()
     {
         if (Input.GetKey(KeyCode.Escape))
         {

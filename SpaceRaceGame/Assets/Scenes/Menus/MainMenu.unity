@@ -599,9 +599,9 @@ MonoBehaviour:
   - {fileID: 398043032}
   - {fileID: 115169184}
   Bosses:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1536516331350932, guid: 4fe69ce2d9dbf0e42b9abbdeca475318, type: 2}
+  - {fileID: 1321109291547092, guid: d01dbe0b858123c488d2dba18322f964, type: 2}
+  - {fileID: 1579694189573106, guid: 462a17ffbef3ea64bb51083425c69364, type: 2}
   Title: {fileID: 511068302}
 --- !u!4 &942223764
 Transform:

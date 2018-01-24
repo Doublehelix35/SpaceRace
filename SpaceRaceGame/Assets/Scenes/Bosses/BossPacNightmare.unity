@@ -3416,16 +3416,6 @@ Prefab:
       propertyPath: Backgrounds.Array.data[0]
       value: 
       objectReference: {fileID: 1334495307}
-    - target: {fileID: 50000013092283222, guid: 289c4a0059a55d748a0f4b981f7c2de5,
-        type: 2}
-      propertyPath: m_AngularDrag
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 50000013092283222, guid: 289c4a0059a55d748a0f4b981f7c2de5,
-        type: 2}
-      propertyPath: m_LinearDrag
-      value: 0.8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 289c4a0059a55d748a0f4b981f7c2de5, type: 2}
   m_IsPrefabParent: 0

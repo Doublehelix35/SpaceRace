@@ -158,9 +158,9 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 a4d86e21ab09fd5c91bccdd009a9add1 Assembly-CSharp.dll:.S_AI_AimNShoot
+5234f7c281d9b1a9b1ad994eac2a387e Assembly-CSharp.dll:.S_LevelSelect
 abfa67d8bbd39e9a413a6f1f92a4aeb9 Assembly-CSharp.dll:.S_Player
 809a23b09436eea2c8f0e6150ac02ce6 Assembly-CSharp.dll:.S_Planet
 e6157f0c56dd33383b19d0e7022f210c Assembly-CSharp.dll:.S_MainMenu
 c4101ebbc1161c8891baa4d88f9f5806 Assembly-CSharp.dll:.S_LoadScene
 3fe3dcd3343b76e7e69b0c050ef162d8 Assembly-CSharp.dll:.S_GhostNightmare
-5234f7c281d9b1a9b1ad994eac2a387e Assembly-CSharp.dll:.S_LevelSelect

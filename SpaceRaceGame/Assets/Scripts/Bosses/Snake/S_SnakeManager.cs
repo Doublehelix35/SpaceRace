@@ -170,7 +170,7 @@ public class S_SnakeManager : MonoBehaviour {
 
     IEnumerator LoadWin()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
         SceneManager.LoadScene("Win");
     }

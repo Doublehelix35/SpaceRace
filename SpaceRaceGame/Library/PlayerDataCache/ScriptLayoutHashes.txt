@@ -124,7 +124,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 3dbfa985d291c6f02d466a918ba635f4 Assembly-CSharp.dll:.S_MoveInDirection
 a08089c8de5e0d145f7752247806739d Assembly-CSharp.dll:.S_PacNightmare
 4e0a724a2b7ed56bbd02d33305ccc613 Assembly-CSharp.dll:.S_Enemy
-576faec79e04d9600f00eb9bc1c258b2 Assembly-CSharp.dll:.S_FoodSpawner
+4defea772a78b4ddaf2ae91ef0a9a7d3 Assembly-CSharp.dll:.S_FoodSpawner
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.S_SaveGame
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 7ac411cc586ed1ab20fe6e9be61009b3 Assembly-CSharp.dll:.S_GameManager

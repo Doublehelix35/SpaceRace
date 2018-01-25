@@ -5,7 +5,6 @@ using UnityEngine;
 public class S_FoodSpawner : MonoBehaviour {
 
     public GameObject[] Spawners; // Must have 5 gameobjects
-    GameObject[] ActiveFood; // Stores active food objects
     public GameObject FoodObject; // Food prefab
 
     // Food objects
@@ -15,7 +14,7 @@ public class S_FoodSpawner : MonoBehaviour {
     GameObject Food4 = null;
     GameObject Food5 = null;
 
-    float CountDown = 6f; // Time until food spawns
+    public float CountDown = 5f; // Time until food spawns
 
 	void Start ()
     {

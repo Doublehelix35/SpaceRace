@@ -606,7 +606,7 @@ Prefab:
     - target: {fileID: 114000011783426328, guid: fc58129168dcc6148ad7ddd3936c6da7,
         type: 2}
       propertyPath: PlayerHealthInt
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114000011783426328, guid: fc58129168dcc6148ad7ddd3936c6da7,
         type: 2}
@@ -820,6 +820,21 @@ Prefab:
       propertyPath: PlayerRef
       value: 
       objectReference: {fileID: 1748462023}
+    - target: {fileID: 114573211028252260, guid: c12ba041d17f7484ea2548d838ae5374,
+        type: 2}
+      propertyPath: Health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573211028252260, guid: c12ba041d17f7484ea2548d838ae5374,
+        type: 2}
+      propertyPath: MinTimeTilDrop
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573211028252260, guid: c12ba041d17f7484ea2548d838ae5374,
+        type: 2}
+      propertyPath: MaxTimeTilDrop
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c12ba041d17f7484ea2548d838ae5374, type: 2}
   m_IsPrefabParent: 0
@@ -1255,6 +1270,21 @@ Prefab:
       propertyPath: TransformToFollow
       value: 
       objectReference: {fileID: 1630406954}
+    - target: {fileID: 114891150635790188, guid: c78c18b1c448ec54b8249ffae27dbe96,
+        type: 2}
+      propertyPath: Health
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114891150635790188, guid: c78c18b1c448ec54b8249ffae27dbe96,
+        type: 2}
+      propertyPath: MinTimeTilDrop
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114891150635790188, guid: c78c18b1c448ec54b8249ffae27dbe96,
+        type: 2}
+      propertyPath: MaxTimeTilDrop
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c78c18b1c448ec54b8249ffae27dbe96, type: 2}
   m_IsPrefabParent: 0
@@ -1892,6 +1922,16 @@ Prefab:
       propertyPath: TransformToFollow
       value: 
       objectReference: {fileID: 1630406954}
+    - target: {fileID: 114757655940056084, guid: 378e5c900502dbf4b8f6abc556074b26,
+        type: 2}
+      propertyPath: Health
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114757655940056084, guid: 378e5c900502dbf4b8f6abc556074b26,
+        type: 2}
+      propertyPath: MaxTimeTilDrop
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 378e5c900502dbf4b8f6abc556074b26, type: 2}
   m_IsPrefabParent: 0
@@ -2624,7 +2664,7 @@ MonoBehaviour:
   FirePoint: {fileID: 1229746197}
   FirePoint02: {fileID: 320251706}
   Speed: 1
-  ShootInterval: 3
+  ShootInterval: 2
   BaseHealth: 100
 --- !u!58 &1630406956
 CircleCollider2D:
@@ -2777,6 +2817,21 @@ Prefab:
       propertyPath: TransformToFollow
       value: 
       objectReference: {fileID: 1630406954}
+    - target: {fileID: 114505415776706076, guid: 7c33335b05944fc4aa260d65d6200087,
+        type: 2}
+      propertyPath: MinTimeTilDrop
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114505415776706076, guid: 7c33335b05944fc4aa260d65d6200087,
+        type: 2}
+      propertyPath: MaxTimeTilDrop
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114505415776706076, guid: 7c33335b05944fc4aa260d65d6200087,
+        type: 2}
+      propertyPath: Health
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c33335b05944fc4aa260d65d6200087, type: 2}
   m_IsPrefabParent: 0

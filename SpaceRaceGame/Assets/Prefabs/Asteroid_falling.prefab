@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Respawns: 0
   IsExplodable: 0
-  BaseHealth: 4
+  BaseHealth: 6
   ThreatSize: 0
   LootIncreaser: 0
   Rock: {fileID: 1000012368928890, guid: 501a3f24f60451c4aabf5d1e11685d0c, type: 2}

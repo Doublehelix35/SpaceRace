@@ -14,7 +14,7 @@ public class S_SnakeManager : MonoBehaviour {
 
     int SnakeSize = 1; // Current snake size
     int CurrentSpawner = 0;
-    float MoveSpeed = 1.5f; // Snake speed
+    float MoveSpeed = 2.5f; // Snake speed
 
     int SnakeHealth = 100; // Current health
     public int SnakeHealthBase = 100; // Max health
@@ -32,43 +32,43 @@ public class S_SnakeManager : MonoBehaviour {
         if (SnakeHealth <= ((SnakeHealthBase / 8) * 7)) // 7/8
         {
             phase = 7;
-            MoveSpeed = 2f;
+            MoveSpeed = 3f;
         }
 
         if (SnakeHealth <= ((SnakeHealthBase / 8) * 6)) // 6/8
         {
             phase = 6;
-            MoveSpeed = 2.5f;
+            MoveSpeed = 3.5f;
         }
 
         if (SnakeHealth <= ((SnakeHealthBase / 8) * 5)) // 5/8
         {
             phase = 5;
-            MoveSpeed = 3f;
+            MoveSpeed = 4f;
         }
 
         if (SnakeHealth <= ((SnakeHealthBase / 8) * 4)) // 4/8
         {
             phase = 4;
-            MoveSpeed = 3.5f;
+            MoveSpeed = 4.5f;
         }
 
         if (SnakeHealth <= ((SnakeHealthBase / 8) * 3)) // 3/8
         {
             phase = 3;
-            MoveSpeed = 4f;
+            MoveSpeed = 5f;
         }
 
         if (SnakeHealth <= ((SnakeHealthBase / 8) * 2)) // 2/8
         {
             phase = 2;
-            MoveSpeed = 4.5f;
+            MoveSpeed = 5.5f;
         }
 
         if (SnakeHealth <= (SnakeHealthBase / 8)) // 1/8
         {
             phase = 1;
-            MoveSpeed = 5f;
+            MoveSpeed = 6f;
         }
 
         if (SnakeHealth < 1) // 0/8
@@ -164,7 +164,14 @@ public class S_SnakeManager : MonoBehaviour {
 
         if(SnakeHealth <= 0) // Check health
         {
-            SceneManager.LoadScene("Win");
+            StartCoroutine("LoadWin");
         }
+    }
+
+    IEnumerator LoadWin()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        SceneManager.LoadScene("Win");
     }
 }

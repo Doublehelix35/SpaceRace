@@ -798,7 +798,7 @@ Prefab:
     - target: {fileID: 114000011783426328, guid: fc58129168dcc6148ad7ddd3936c6da7,
         type: 2}
       propertyPath: PlayerHealthInt
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114000011783426328, guid: fc58129168dcc6148ad7ddd3936c6da7,
         type: 2}
@@ -1052,13 +1052,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4ecfef45a18d7419134ea04ff1062b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinTimeTilDrop: 2
-  MaxTimeTilDrop: 10
+  MinTimeTilDrop: 1
+  MaxTimeTilDrop: 2
   RespawnTime: 3
   PlayerRef: {fileID: 1748462023}
   DropSpeed: 0.3
   WaveAmplitude: 10
-  Health: 5
+  Health: 10
   Pattern: 0
 --- !u!50 &618137370
 Rigidbody2D:
@@ -1399,13 +1399,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4ecfef45a18d7419134ea04ff1062b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinTimeTilDrop: 2
-  MaxTimeTilDrop: 10
+  MinTimeTilDrop: 1
+  MaxTimeTilDrop: 2
   RespawnTime: 3
   PlayerRef: {fileID: 1748462023}
-  DropSpeed: 0.2
+  DropSpeed: 0.3
   WaveAmplitude: 1
-  Health: 5
+  Health: 7
   Pattern: 1
 --- !u!50 &780331525
 Rigidbody2D:
@@ -2815,13 +2815,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4ecfef45a18d7419134ea04ff1062b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinTimeTilDrop: 2
-  MaxTimeTilDrop: 10
+  MinTimeTilDrop: 1
+  MaxTimeTilDrop: 2
   RespawnTime: 3
   PlayerRef: {fileID: 1748462023}
   DropSpeed: 0.5
   WaveAmplitude: 1
-  Health: 5
+  Health: 10
   Pattern: 2
 --- !u!50 &1717830121
 Rigidbody2D:

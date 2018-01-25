@@ -65,7 +65,9 @@ public class S_AsteroidBoss : MonoBehaviour {
         GameManagerRef.GetComponent<S_PhaseManager>().PhaseUpdater(phase); 
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    
+
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Bullet")
         {
@@ -73,11 +75,17 @@ public class S_AsteroidBoss : MonoBehaviour {
             Health--;
 
             // Check health
-            if (Health <= 0) 
+            if (Health <= 0)
             {
-                SceneManager.LoadScene("Win");
+                StartCoroutine("LoadWin");
             }
         }
+    }
 
+    IEnumerator LoadWin()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        SceneManager.LoadScene("Win");
     }
 }

@@ -61,7 +61,7 @@ MonoBehaviour:
   NumOfUraniumFloat: 0
   NumOfCoinsFloat: 0
   PlayerHealthText: {fileID: 0}
-  PlayerHealthInt: 6
+  PlayerHealthInt: 5
   RockText: {fileID: 0}
   MetalText: {fileID: 0}
   CrystalText: {fileID: 0}

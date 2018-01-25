@@ -578,7 +578,7 @@ Prefab:
     - target: {fileID: 114000011783426328, guid: fc58129168dcc6148ad7ddd3936c6da7,
         type: 2}
       propertyPath: PlayerHealthInt
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114000011783426328, guid: fc58129168dcc6148ad7ddd3936c6da7,
         type: 2}
@@ -709,7 +709,7 @@ MonoBehaviour:
   Object02: {fileID: 1000010019374498, guid: fdbe414f2ad8c2b4ea0b3d018109e200, type: 2}
   distanceLeft: -3
   distanceRight: 3
-  SpawnWaitTime: 4
+  SpawnWaitTime: 2
 --- !u!1 &579966791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca9811538e45404089f8f3f0d116ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseHealth: 100
+  BaseHealth: 200
 --- !u!58 &676680136
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1045,7 +1045,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.06, y: -0.12}

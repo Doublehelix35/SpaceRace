@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 95000011224188042}
   - component: {fileID: 114000011272198316}
   - component: {fileID: 58000013469221744}
+  - component: {fileID: 58764847815193268}
   - component: {fileID: 50000013041935908}
   m_Layer: 0
   m_Name: Projectile_0
@@ -74,6 +75,21 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.04
+--- !u!58 &58764847815193268
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013304584290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

@@ -114,6 +114,8 @@ public class S_Player : MonoBehaviour {
             {
                 S_GameManager.gameManager.HealthMinus();
                 LastDamageTime = Time.time;
+                
+                StartCoroutine("FlashRed");
             }
             
         }
@@ -145,5 +147,15 @@ public class S_Player : MonoBehaviour {
     }
 
     
+    IEnumerator FlashRed()
+    {
+        // Flash red
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        Debug.Log("RED");
 
+        yield return new WaitForSeconds(0.05f);
+
+        // Return to normal
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+    }
 }

@@ -204,8 +204,15 @@ public class S_PacMonster : MonoBehaviour {
             Health--;
             if (Health <= 0) // Check health
             {
-                SceneManager.LoadScene("BossPacNightmare");
+                StartCoroutine("LoadWin");
             }
         }
+    }
+
+    IEnumerator LoadWin()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        SceneManager.LoadScene("Win");
     }
 }

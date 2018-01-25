@@ -5,19 +5,23 @@ using UnityEngine.UI;
 
 public class S_LevelSelect : MonoBehaviour {
 
+    // UI images to change
     public Image AsteroidImage;
     public Image SnakeImage;
     public Image PacMonsterImage;
+    
+    // Title
     public Text Title;
     float SizeToScale = 0.2f;
 
+    // Should all be the same length
     public Sprite[] AsteroidSprites;
     public Sprite[] SnakeSprites;
     public Sprite[] PacMonsterSprites;
 
-    float ImageRefreshTimer = 2f;
+    public float ImageRefreshTimer = 1f; // Time between image change
     float LastImageRefresh; // Time.time of last refresh
-    int ImageCount = 0; // What image to show
+    int ImageCount = 1; // What image to show
 
     void Start ()
     {
@@ -26,15 +30,19 @@ public class S_LevelSelect : MonoBehaviour {
 	
 	void Update ()
     {
+        // Ping pong between 1f and 1f + size to scale
         Vector3 ScaledVec = new Vector3(Mathf.PingPong(Time.time / 6, SizeToScale) + 1f,
                                         Mathf.PingPong(Time.time / 6, SizeToScale) + 1f,
                                         0f);
         Title.rectTransform.localScale = ScaledVec;
 
-        if(LastImageRefresh + 2f < Time.time)
+        // Refresh images
+        if(LastImageRefresh + ImageRefreshTimer < Time.time)
         {
             // Load new sprites into images
             AsteroidImage.sprite = AsteroidSprites[ImageCount];
+            SnakeImage.sprite = SnakeSprites[ImageCount];
+            PacMonsterImage.sprite = PacMonsterSprites[ImageCount];
 
             LastImageRefresh = Time.time;
             ImageCount++;

@@ -204,7 +204,7 @@ public class S_PacMonster : MonoBehaviour {
             Health--;
             if (Health <= 0) // Check health
             {
-                SceneManager.LoadScene("Win");
+                SceneManager.LoadScene("BossPacNightmare");
             }
         }
     }

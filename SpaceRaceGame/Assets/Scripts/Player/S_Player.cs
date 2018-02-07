@@ -153,7 +153,7 @@ public class S_Player : MonoBehaviour {
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         Debug.Log("RED");
 
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
 
         // Return to normal
         gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
